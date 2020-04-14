@@ -38,7 +38,35 @@ function addHtml(data){
     for(i=0; i< data.length; i++){
 
         htmlText += "<p class=red>" +data[i].name + 
-                    " is a <span class=green>" + data[i].model +"</span><hr></P>" ;
+                    " is a <span class=green>" + data[i].model +"</span>"
+                     + "<br> that has cars 4×4 like : ";
+                    
+        
+            for(j=0; j< data[i].type.four.length; j++){
+            
+               if(j==0){
+                htmlText += data[i].type.four[j];
+                }else{
+
+                    htmlText += " and "+data[i].type.four[j];
+                }
+                 
+               
+            }    
+            
+            htmlText += "<br> salon cars like: ";
+
+            for(j=0; j< data[i].type.salon.length; j++){
+            
+                if(j==0){
+                 htmlText += data[i].type.salon[j];
+                 }else{
+ 
+                     htmlText += " and "+data[i].type.salon[j];
+                 }
+                }
+           htmlText += " <p><br>made in : " + data[i].year  + "</p>"; 
+           htmlText += "<hr></P>" ;
     }
     info.insertAdjacentHTML('beforeend',htmlText);
 }
