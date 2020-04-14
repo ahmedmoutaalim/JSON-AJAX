@@ -1,12 +1,12 @@
 
 
-var button = document.getElementById('zar');
+var zar = document.getElementById('zar');
 var info =document.getElementById('info');
-
-button.addEventListener("click",function(){
+var pageName = 1
+zar.addEventListener("click",function(){
 
 var xReq = new XMLHttpRequest();
-xReq.open('GET','js/cars.json');
+xReq.open('GET','js/cars-' + pageName + '.json');
 xReq.onload = function(){
     var xData = JSON.parse(xReq.responseText);
         // document.write(xData[0].name)
@@ -16,7 +16,17 @@ xReq.onload = function(){
       
       addHtml(xData); 
     };
+
+    pageName++;
     xReq.send();
+
+    if(pageName>3){
+
+        zar.classList.add('hide');
+        zar.style.backgroundColor = '#eee';
+        zar.style.color='lightgray';
+
+    }
 
 });
 
