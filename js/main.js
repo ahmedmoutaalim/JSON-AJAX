@@ -2,7 +2,7 @@
 
 var zar = document.getElementById('zar');
 var info =document.getElementById('info');
-var pageName = 1
+var pageName = 1;
 zar.addEventListener("click",function(){
 
 var xReq = new XMLHttpRequest();
@@ -38,8 +38,8 @@ function addHtml(data){
     for(i=0; i< data.length; i++){
 
         htmlText += "<p class=red>" +data[i].name + 
-                    " is a <span class=green>" + data[i].model +"</span>"
-                     + "<br> that has cars 4×4 like : ";
+                    " is a <span class=green>" + data[i].model +"</span> </P>"
+                     + "<span class=red> that has cars 4×4 like :</span>";
                     
         
             for(j=0; j< data[i].type.four.length; j++){
@@ -54,7 +54,7 @@ function addHtml(data){
                
             }    
             
-            htmlText += "<br> salon cars like: ";
+            htmlText += " <span class=red><br> salon cars like:</span> ";
 
             for(j=0; j< data[i].type.salon.length; j++){
             
@@ -65,8 +65,8 @@ function addHtml(data){
                      htmlText += " and "+data[i].type.salon[j];
                  }
                 }
-           htmlText += " <p><br>made in : " + data[i].year  + "</p>"; 
-           htmlText += "<hr></P>" ;
+           htmlText += " <p class=orange >made in : " + data[i].year  + "</p>"; 
+           htmlText += "<hr>" ;
     }
     info.insertAdjacentHTML('beforeend',htmlText);
 }
