@@ -12,7 +12,7 @@ function getCat(){
     fetch("https://aws.random.cat/meow")
     .then(res => res.json())
     .then(data=>{
-        myCatImg.innerHTML= `<img src="${data.file}"/>`
+        myCatImg.innerHTML= `<img src="${data.file}"/>`;
     })
 }
  
